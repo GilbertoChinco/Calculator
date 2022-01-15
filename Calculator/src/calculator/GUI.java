@@ -1,6 +1,5 @@
 
 package calculator;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -20,10 +19,9 @@ public class GUI extends JFrame{
     public int TypeOperation;
     
     public GUI(){
-        this.setSize(391, 600);
+        this.setSize(381, 389);
         setLocationRelativeTo(null);
-        setMinimumSize(new Dimension(390, 600));
-        setMaximumSize(new Dimension(390, 600));
+        setResizable(false);
         setTitle("Calculator");
         InitializeComponents();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -48,61 +46,61 @@ public class GUI extends JFrame{
         
         //Button 0
         Button_0 = new JButton("0");
-        Button_0.setBounds(102, 510, 100, 50);
+        Button_0.setBounds(102, 309, 100, 50);
         Button_0.setEnabled(true);
         Panel.add(Button_0);
         
         //Button 1
         Button_1 = new JButton("1");
-        Button_1.setBounds(1, 459, 100, 50);
+        Button_1.setBounds(1, 258, 100, 50);
         Button_1.setEnabled(true);
         Panel.add(Button_1);
         
         //Button 2
         Button_2 = new JButton("2");
-        Button_2.setBounds(102, 459, 100, 50);
+        Button_2.setBounds(102, 258, 100, 50);
         Button_2.setEnabled(true);
         Panel.add(Button_2);
         
         //Button 3
         Button_3 = new JButton("3");
-        Button_3.setBounds(203, 459, 100, 50);
+        Button_3.setBounds(203, 258, 100, 50);
         Button_3.setEnabled(true);
         Panel.add(Button_3);
         
         //Button 1
         Button_4 = new JButton("4");
-        Button_4.setBounds(1, 408, 100, 50);
+        Button_4.setBounds(1, 207, 100, 50);
         Button_4.setEnabled(true);
         Panel.add(Button_4);
         
         //Button 2
         Button_5 = new JButton("5");
-        Button_5.setBounds(102, 408, 100, 50);
+        Button_5.setBounds(102, 207, 100, 50);
         Button_5.setEnabled(true);
         Panel.add(Button_5);
         
         //Button 3
         Button_6 = new JButton("6");
-        Button_6.setBounds(203, 408, 100, 50);
+        Button_6.setBounds(203, 207, 100, 50);
         Button_6.setEnabled(true);
         Panel.add(Button_6);
         
         //Button 7
         Button_7 = new JButton("7");
-        Button_7.setBounds(1, 357, 100, 50);
+        Button_7.setBounds(1, 156, 100, 50);
         Button_7.setEnabled(true);
         Panel.add(Button_7);
         
         //Button 8
         Button_8 = new JButton("8");
-        Button_8.setBounds(102, 357, 100, 50);
+        Button_8.setBounds(102, 156, 100, 50);
         Button_8.setEnabled(true);
         Panel.add(Button_8);
         
         //Button 9
         Button_9 = new JButton("9");
-        Button_9.setBounds(203, 357, 100, 50);
+        Button_9.setBounds(203, 156, 100, 50);
         Button_9.setEnabled(true);
         Panel.add(Button_9);
         
@@ -111,78 +109,78 @@ public class GUI extends JFrame{
     private void setButtonsOperations(){
         //Button Result
         ButtonResult = new JButton("=");
-        ButtonResult.setBounds(304, 510, 70, 50);
+        ButtonResult.setBounds(304, 309, 70, 50);
         ButtonResult.setEnabled(true);
         Panel.add(ButtonResult);
         
         //Button sum
         ButtonSum = new JButton("+");
-        ButtonSum.setBounds(304, 459, 70, 50);
+        ButtonSum.setBounds(304, 258, 70, 50);
         ButtonSum.setEnabled(true);
         Panel.add(ButtonSum);
         
         //Button diff
         ButtonDiff = new JButton("-");
-        ButtonDiff.setBounds(304, 408, 70, 50);
+        ButtonDiff.setBounds(304, 207, 70, 50);
         ButtonDiff.setEnabled(true);
         Panel.add(ButtonDiff);
         
         //Button Product
         ButtonProduct = new JButton("*");
-        ButtonProduct.setBounds(304, 357, 70, 50);
+        ButtonProduct.setBounds(304, 156, 70, 50);
         ButtonProduct.setEnabled(true);
         Panel.add(ButtonProduct);
         
         //Button sqrt
         ButtonSqrt = new JButton("Sqrt");
-        ButtonSqrt.setBounds(1, 306, 70, 50);
+        ButtonSqrt.setBounds(1, 105, 70, 50);
         ButtonSqrt.setEnabled(true);
         Panel.add(ButtonSqrt);
         
         //Button exp
         ButtonExp = new JButton("Exp");
-        ButtonExp.setBounds(72, 306, 70, 50);
+        ButtonExp.setBounds(72, 105, 70, 50);
         ButtonExp.setEnabled(true);
         Panel.add(ButtonExp);
         
         //Button C
         ButtonC = new JButton("C");
-        ButtonC.setBounds(143, 306, 70, 50);
+        ButtonC.setBounds(143, 105, 70, 50);
         ButtonC.setEnabled(true);
         Panel.add(ButtonC);
         
         //Button Fraction
         ButtonFrac = new JButton("/");
-        ButtonFrac.setBounds(214, 306, 70, 50);
+        ButtonFrac.setBounds(214, 105, 70, 50);
         ButtonFrac.setEnabled(true);
         Panel.add(ButtonFrac);
         
         //Button Delete
         ButtonDelete = new JButton("Delete");
-        ButtonDelete.setBounds(285, 306, 89, 50);
+        ButtonDelete.setBounds(285, 105, 89, 50);
         ButtonDelete.setEnabled(true);
         Panel.add(ButtonDelete);
         
         //Button +/-
         ButtonPlusMinus = new JButton("+/-");
-        ButtonPlusMinus.setBounds(1, 510, 100, 50);
+        ButtonPlusMinus.setBounds(1, 309, 100, 50);
         ButtonPlusMinus.setEnabled(true);
         Panel.add(ButtonPlusMinus);
         
         //Button dot
         ButtonDot = new JButton(".");
-        ButtonDot.setBounds(203, 510, 100, 50);
+        ButtonDot.setBounds(203, 309, 100, 50);
         ButtonDot.setEnabled(true);
         Panel.add(ButtonDot);
     }
     
     private void setTextArea(){
         TextResult = new JTextField();
-        TextResult.setBounds(1, 250, 370, 50);
+        TextResult.setBounds(1, 4, 373, 50);
         Panel.add(TextResult);
         
         TextOperation = new JTextField();
-        TextOperation.setBounds(1, 199, 370, 50);
+        TextOperation.setBounds(1, 55, 373, 50);
         Panel.add(TextOperation);
     }
     
