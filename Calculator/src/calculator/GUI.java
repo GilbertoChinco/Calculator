@@ -11,30 +11,12 @@ import javax.swing.JTextField;
 
 public class GUI extends JFrame{
     public JPanel Panel;
-    public JTextField TextResult;
-    public JButton Button_0;
-    public JButton Button_1;
-    public JButton Button_2;
-    public JButton Button_3;
-    public JButton Button_4;
-    public JButton Button_5;
-    public JButton Button_6;
-    public JButton Button_7;
-    public JButton Button_8;
-    public JButton Button_9;
-    public JButton ButtonResult;
-    public JButton ButtonSum;
-    public JButton ButtonDiff;
-    public JButton ButtonProduct;
-    public JButton ButtonFrac;
-    public JButton ButtonExp;
-    public JButton ButtonSqrt;
-    public JButton ButtonC;
-    public JButton ButtonPlusMinus;
-    public JButton ButtonDelete;
-    public JButton ButtonDot;
-    public double FirstNumber;
-    public double SecondNumber;
+    public JTextField TextResult, TextOperation;
+    public JButton Button_0, Button_1, Button_2, Button_3, Button_4;
+    public JButton Button_5, Button_6, Button_7, Button_8, Button_9, ButtonDot;
+    public JButton ButtonResult, ButtonSum, ButtonDiff, ButtonProduct, ButtonPlusMinus;
+    public JButton ButtonFrac, ButtonExp, ButtonSqrt, ButtonC, ButtonDelete;
+    public double FirstNumber, SecondNumber;
     public int TypeOperation;
     
     public GUI(){
@@ -198,6 +180,10 @@ public class GUI extends JFrame{
         TextResult = new JTextField();
         TextResult.setBounds(1, 250, 370, 50);
         Panel.add(TextResult);
+        
+        TextOperation = new JTextField();
+        TextOperation.setBounds(1, 199, 370, 50);
+        Panel.add(TextOperation);
     }
     
     private void ActionNumbersButtons(){
@@ -307,9 +293,15 @@ public class GUI extends JFrame{
         ActionListener ALButtonSum = new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
-                TypeOperation = 1;
-                FirstNumber = Double.parseDouble(TextResult.getText());
-                TextResult.setText("");
+                if(TextResult.getText().isEmpty() != true){
+                    TypeOperation = 1;
+                    FirstNumber = Double.parseDouble(TextResult.getText());
+                    TextOperation.setText(TextResult.getText() + " " + ButtonSum.getText());
+                    TextResult.setText("");
+                }
+                else{
+                    TypeOperation = 0;
+                }
             }
         };
         ButtonSum.addActionListener(ALButtonSum);
@@ -318,9 +310,15 @@ public class GUI extends JFrame{
         ActionListener ALButtonDiff = new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
-                TypeOperation = 2;
-                FirstNumber = Double.parseDouble(TextResult.getText());
-                TextResult.setText("");
+                if(TextResult.getText().isEmpty() != true){
+                    TypeOperation = 2;
+                    FirstNumber = Double.parseDouble(TextResult.getText());
+                    TextOperation.setText(TextResult.getText() + " " + ButtonDiff.getText());
+                    TextResult.setText("");
+                }
+                else{
+                    TypeOperation = 0;
+                }
             }
         };
         ButtonDiff.addActionListener(ALButtonDiff);
@@ -329,9 +327,15 @@ public class GUI extends JFrame{
         ActionListener ALButtonProduct = new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
-                TypeOperation = 3;
-                FirstNumber = Double.parseDouble(TextResult.getText());
-                TextResult.setText("");
+                if(TextResult.getText().isEmpty() != true){
+                    TypeOperation = 3;
+                    FirstNumber = Double.parseDouble(TextResult.getText());
+                    TextOperation.setText(TextResult.getText() + " " + ButtonProduct.getText());
+                    TextResult.setText("");
+                }
+                else{
+                    TypeOperation = 0;
+                }
             }
         };
         ButtonProduct.addActionListener(ALButtonProduct);
@@ -340,9 +344,15 @@ public class GUI extends JFrame{
         ActionListener ALButtonFrac = new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
-                TypeOperation = 4;
-                FirstNumber = Double.parseDouble(TextResult.getText());
-                TextResult.setText("");
+                if(TextResult.getText().isEmpty() != true){
+                    TypeOperation = 4;
+                    FirstNumber = Double.parseDouble(TextResult.getText());
+                    TextOperation.setText(TextResult.getText() + " " + ButtonFrac.getText());
+                    TextResult.setText("");
+                }
+                else{
+                    TypeOperation = 0;
+                }
             }
         };
         ButtonFrac.addActionListener(ALButtonFrac);
@@ -351,9 +361,15 @@ public class GUI extends JFrame{
         ActionListener ALButtonExp = new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
-                TypeOperation = 5;
-                FirstNumber = Double.parseDouble(TextResult.getText());
-                TextResult.setText("");
+                if(TextResult.getText().isEmpty() != true){
+                    TypeOperation = 5;
+                    FirstNumber = Double.parseDouble(TextResult.getText());
+                    TextOperation.setText(TextResult.getText() + " " + ButtonExp.getText());
+                    TextResult.setText("");
+                }
+                else{
+                    TypeOperation = 0;
+                }
             }
         };
         ButtonExp.addActionListener(ALButtonExp);
@@ -362,8 +378,15 @@ public class GUI extends JFrame{
         ActionListener ALButtonSqrt = new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
-                FirstNumber = Double.parseDouble(TextResult.getText());
-                TextResult.setText(Double.toString(Math.sqrt(FirstNumber)));
+                if(TextResult.getText().isEmpty() != true){
+                    FirstNumber = Double.parseDouble(TextResult.getText());
+                    TextResult.setText(Double.toString(Math.sqrt(FirstNumber)));
+                    TextOperation.setText(ButtonSqrt.getText() + "(" + FirstNumber + ")" + " = " + Double.toString(Math.sqrt(FirstNumber)));
+                    TextResult.setText("");
+                }
+                else{
+                    TypeOperation = 0;
+                }
             }
         };
         ButtonSqrt.addActionListener(ALButtonSqrt);
@@ -373,29 +396,40 @@ public class GUI extends JFrame{
         ActionListener ALButtonResult = new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
-                double Result;
-                SecondNumber = Double.parseDouble(TextResult.getText());
-                switch(TypeOperation){
-                    case 1:     //Sum
-                        Result = FirstNumber + SecondNumber;
-                        TextResult.setText(Double.toString(Result));
-                        break;
-                    case 2:     //Diff
-                        Result = FirstNumber - SecondNumber;
-                        TextResult.setText(Double.toString(Result));
-                        break;
-                    case 3:     //Diff
-                        Result = FirstNumber * SecondNumber;
-                        TextResult.setText(Double.toString(Result));
-                        break;
-                    case 4:
-                        Result = FirstNumber / SecondNumber;
-                        TextResult.setText(Double.toString(Result));
-                        break;
-                    case 5:
-                        Result = Math.pow(FirstNumber, SecondNumber);
-                        TextResult.setText(Double.toString(Result));
-                        break;
+                if(TextResult.getText().isEmpty() != true){
+                    double Result;
+                    SecondNumber = Double.parseDouble(TextResult.getText());
+                    switch(TypeOperation){
+                        case 1:     //Sum
+                            Result = FirstNumber + SecondNumber;
+                            TextResult.setText(Double.toString(Result));
+                            TextOperation.setText(FirstNumber + " " + ButtonSum.getText() + " " + SecondNumber + " = " + Double.toString(Result));
+                            break;
+                        case 2:     //Diff
+                            Result = FirstNumber - SecondNumber;
+                            TextResult.setText(Double.toString(Result));
+                            TextOperation.setText(FirstNumber + " " + ButtonDiff.getText() + " " + SecondNumber + " = " + Double.toString(Result));
+                            break;
+                        case 3:     //Product
+                            Result = FirstNumber * SecondNumber;
+                            TextResult.setText(Double.toString(Result));
+                            TextOperation.setText(FirstNumber + " " + ButtonProduct.getText() + " " + SecondNumber + " = " + Double.toString(Result));
+                            break;
+                        case 4:  //frac
+                            Result = FirstNumber / SecondNumber;
+                            TextResult.setText(Double.toString(Result));
+                            TextOperation.setText(FirstNumber + " " + ButtonFrac.getText() + " " + SecondNumber + " = " + Double.toString(Result));
+                            break;
+                        case 5:  //Exponent
+                            Result = Math.pow(FirstNumber, SecondNumber);
+                            TextResult.setText(Double.toString(Result));
+                            TextOperation.setText(FirstNumber + " " + ButtonExp.getText() + " " + SecondNumber + " = " + Double.toString(Result));
+                            break;
+                    }
+                    TextResult.setText("");
+                }
+                else{
+                    TypeOperation = 0;
                 }
             }
         };
@@ -417,10 +451,14 @@ public class GUI extends JFrame{
         ActionListener ALButtonDelete = new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
-                StringBuffer sb = new StringBuffer(TextResult.getText());
-                sb.deleteCharAt(sb.length() - 1);
-                TextResult.setText(sb.toString());
-                
+                if(TextResult.getText().isEmpty() != true){
+                    StringBuffer sb = new StringBuffer(TextResult.getText());
+                    sb.deleteCharAt(sb.length() - 1);
+                    TextResult.setText(sb.toString());
+                }
+                else{
+                    TypeOperation = 0;
+                }
             }
         };
         ButtonDelete.addActionListener(ALButtonDelete);
